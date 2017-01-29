@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=1024" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<title>share</title>
+	<link href="css/impress-demo.css" rel="stylesheet" />
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="shortcut icon" href="favicon.png" />
+	<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+</head>
+<!-- 
+id：
+	impress 从这里开始impress开始控制
+类：
+	impress-not-supported 加载body上，检测浏览器是否支持impress
+	fallback-message 浏览器不支持impress的回调函数
+	step 一个新的场景
+属性：
+	data-transition-duration="2000" 改变切换场景的速度，默认1000
+	data-perspective="500" 改变透视的深度，默认1000，设置为0，就不会有3D效果了
+	data-x="-1000" data-y="-1500" 场景相对于中心的位置
+	data-scale="4" 设置场景的缩放比
+	data-rotate="90" 设置场景的旋转角度
+	data-z="-3000" 设置场景的深度
+	data-rotate-z 沿着z轴旋转
+	data-rotate-x 沿着x轴旋转
+	data-rotate-y 沿着y轴旋转
+方法：
+	impress().init() - 初始化演示；
+	impress().next() - 播放下一个幻灯片；
+	impress().prev() - 回到上一个幻灯片；
+	impress().goto( idx | id | element, [duration] ) - 通过指定的id或DOM元素切换场景，第二个参数可以指定切换时间
+
+可以将url改为#/step-N来找到某一步场景，为场景设置id也可通过id进行寻找
+
+ -->
+
+ <!-- http://www.cnblogs.com/Darren_code/archive/2013/01/04/impressjs.html -->
+<body class="impress-not-supported">
+
+	<div class="fallback-message">
+		<p>尊驾的浏览器太老土啦！<b>无法满足impress.js的要求</b>，现在你只能看到一些最朴素的演示画面。</p>
+		<p>为了欣赏漂亮的演示画面，请使用先进、优雅、快速、美丽、免费的现代浏览器，比如 <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> 。</p>
+	</div>
+
+	<div id="impress" data-transition-duration="1400">
+
+		<!-- 开场介绍 -->
+		<div id="" class="step slide" data-x="-1000" data-y="-1500" data-rotate-z="-40">
+			<h2>impress.js</h2><br>
+			<p>impress.js是一个供开发者使用表现层框架，它为你的ppt提供了舞台和场景，内容完全由自己发挥，只要你的css和js能力足够强大。</p>
+			<br>
+			github地址：<a href="https://github.com/impress/impress.js">点这里</a>
+		</div>
+
+		<!-- 使用的必要条件 -->
+		<div class="step slide" data-x="0" data-y="-1850" data-rotate-z="0">
+			<h2>start</h2>
+			<p>首先需要引入impress.js，大家都懂的。</p><br>
+			<p>在使用时，你需要一个div做为整个舞台的载体，让其 <b>id="impress"</b>，所有的场景都在这里显示。</p><br>
+			<p>你需要在script标签中敲入：<code>impress().init()</code> 来初始化impress。</p><br>
+			<p>你需要点击场景或按 ↑ → ↓ ← 来进行场景的切换。</p>
+		</div>
+
+		<!-- 可以用的class -->
+		<div class="step slide" data-x="1000" data-y="-1500" data-rotate-z="40">
+			<h2>可用的class</h2>
+			<p>impress-not-supported : 检查你的浏览器是否支持impress.js，通常加在body上即可。</p><br>
+			<p>fallback-message : 浏览器不支持impress.js时显示的元素，可用于提示用户。</p><br>
+			<p>step : 创建一个场景，即一个新的幻灯片，这个非常重要，除非你不想让舞台超级炫酷。</p><br>
+		</div>
+		
+		<!-- 可用的方法 -->
+		<div class="step slide" data-x="0" data-y="-700" data-scale="2">
+			<h2>一些API</h2>
+			<p>impress().init() - 初始化演示；</p><br>
+			<p>impress().next() - 播放下一个幻灯片；</p><br>
+			<p>impress().prev() - 回到上一个幻灯片；</p><br>
+			<p>impress().goto( idx | id | element, [duration] ) - 通过指定的id或DOM元素切换场景；duration可以指定切换时间；id对于impress来说是可有可无的，因为他会为每一个场景设置一个"step-n"的id</p>
+		</div>
+
+		<div class="step" data-x="0" data-y="800" data-scale="2">
+			<h2>重点来了</h2>
+		</div>
+
+		<!-- 开始属性介绍 -->
+		<div class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="3">
+			<p>data-transition-duration="1000"</p>
+			<br>
+			<p>改变场景的切换速度，默认为1000</p>
+		</div>
+
+		<div class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="4">
+			<p>data-perspective="1000"</p>
+			<p>改变透视的深度，默认1000，如果设置为0（这是零哦），炫酷的3D效果将离你而去。</p>
+		</div>
+
+		<div class="step" data-x="2825" data-y="2325" data-z="-3000">
+			<p>data-x="2825"</p>
+			<p>data-y="2325"</p>
+			<p>data-z="-3000"</p>
+			<p>设置场景相对于舞台中心的位置</p>
+		</div>
+		
+		<div class="step" data-x="2825" data-y="2600" data-z="-3000" data-rotate-x="-50">
+			<p>你有没有注意到刚刚这里是3D显示的？</p>
+		</div>
+
+		<div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
+			<p>试试这三个属性吧！</p>
+			<p>data-rotate-z 沿着z轴旋转</p>
+			<p>data-rotate-x 沿着x轴旋转</p>
+			<p>data-rotate-y 沿着y轴旋转</p>
+		</div>
+
+		<div class="step" data-scale="2" data-x="2000" data-y="2000">
+			<h2>你看到其他场景了吗？</h2>
+			<h2>data-scale="2"</h2>
+		</div>
+
+		<div class="step" data-scale="2" data-x="2000" data-y="4000" data-rotate="360">
+			<h2>晕吗？</h2>
+			<h2>data-rotate="360"</h2>
+		</div>
+
+		<div class="step block" data-x="4000" data-y="-2000">
+			<h2>下面看一个小栗子</h2>
+		</div>
+
+		<!-- 魔方 -->
+		<div class="step block" data-x="4000" data-y="-1000">
+			<h1>1</h1>
+		</div>
+		<div class="step block" data-x="4000" data-y="-700" data-z="-300" data-rotate-x="-90">
+			<h1>2</h1>
+		</div>
+		<div class="step block" data-x="4000" data-y="-1000" data-z="-600" data-rotate-x="-180">
+			<h1>6</h1>
+		</div>
+		<div class="step block" data-x="4000" data-y="-1300" data-z="-300" data-rotate-x="-270">
+			<h1>5</h1>
+		</div>
+		<div class="step block" data-x="3700" data-y="-1000" data-z="-300" data-rotate-y="-90">
+			<h1>3</h1>
+		</div>
+		<div class="step block" data-x="4300" data-y="-1000" data-z="-300" data-rotate-y="90">
+			<h1>4</h1>
+		</div>
+
+		<!-- 将整个画布缩小10倍，看到整个舞台 -->
+		<div class="step" data-x="3000" data-y="1500" data-scale="10">
+			<p style="font-size: 160px;text-align: center;">谢谢观看</p>
+		</div>
+
+	</div>
+
+<div class="hint">
+	<p>使用空格或者方向键来移动</p>
+</div>
+<script>
+if ("ontouchstart" in document.documentElement) { 
+	document.querySelector(".hint").innerHTML = "<p>向左或向右拖动屏幕来移动</p>";
+}
+document.onclick = function (){
+	impress().next();
+};
+document.ondbclick = function (){
+	impress().prev();
+};
+</script>
+
+<script src="js/impress.js"></script>
+<!-- 初始化impress.js -->
+<script>impress().init();</script>
+
+</body>
+</html>
